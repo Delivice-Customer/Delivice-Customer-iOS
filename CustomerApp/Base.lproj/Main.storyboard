@@ -1,25 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Q8C-Xr-ymf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Left View Controller-->
+        <scene sceneID="PMW-d3-MIe">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GgF-Qb-AGX" customClass="LeftViewController" customModule="CustomerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Bsf-rv-I33"/>
+                        <viewControllerLayoutGuide type="bottom" id="LaD-zN-OPb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="view" id="s3v-DO-Gwl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVL-YM-xtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="72" y="594"/>
+        </scene>
+        <!--Center View Controller-->
+        <scene sceneID="Hea-yJ-thG">
+            <objects>
+                <viewController storyboardIdentifier="CenterViewController" title="Center View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D1p-rF-B3K" customClass="CenterViewController" customModule="CustomerApp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pwd-zf-Wvv"/>
+                        <viewControllerLayoutGuide type="bottom" id="r3X-v5-gXr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lfl-uj-rvX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items Go Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U63-CI-fUo">
+                                <rect key="frame" x="245" y="225" width="111" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-RO-bvX">
+                                <rect key="frame" x="16" y="221" width="30" height="30"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showLeft:" destination="D1p-rF-B3K" eventType="touchUpInside" id="Of5-4X-uRC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhO-bm-99U">
+                                <rect key="frame" x="538" y="221" width="46" height="30"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showRight:" destination="D1p-rF-B3K" eventType="touchUpInside" id="8hs-zK-UGU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="U63-CI-fUo" secondAttribute="centerX" constant="-0.5" id="Ayq-6K-1Tm"/>
+                            <constraint firstItem="JhO-bm-99U" firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="0.75" id="OeS-xa-8kr"/>
+                            <constraint firstItem="JhO-bm-99U" firstAttribute="trailing" secondItem="lfl-uj-rvX" secondAttribute="trailingMargin" id="Qym-3t-NtO"/>
+                            <constraint firstItem="s2d-RO-bvX" firstAttribute="leading" secondItem="lfl-uj-rvX" secondAttribute="leadingMargin" id="S14-Hb-rBv"/>
+                            <constraint firstItem="s2d-RO-bvX" firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="0.75" id="l7s-in-Csv"/>
+                            <constraint firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="64.5" id="oyT-LP-Bfh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LeftButton" destination="s2d-RO-bvX" id="lTg-i2-MKq"/>
+                        <outlet property="RightButton" destination="JhO-bm-99U" id="mY3-lH-4KT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fh0-kf-gyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="594"/>
+        </scene>
+        <!--Right View Controller-->
+        <scene sceneID="aD0-p0-yJX">
+            <objects>
+                <viewController storyboardIdentifier="RightViewController" id="yhs-LM-0lO" customClass="RightViewController" customModule="CustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OYU-1R-c92"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jou-et-EEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xta-6Z-tY9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evX-bp-SX5">
+                                <rect key="frame" x="16" y="222" width="46" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToCenter:" destination="yhs-LM-0lO" eventType="touchUpInside" id="U5x-6s-Vql"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="evX-bp-SX5" secondAttribute="centerY" constant="63" id="LbL-mY-1Qw"/>
+                            <constraint firstItem="evX-bp-SX5" firstAttribute="leading" secondItem="Xta-6Z-tY9" secondAttribute="leadingMargin" id="Qlu-jp-HX1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="evX-bp-SX5" id="vms-oh-3DN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqf-dD-DoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1405" y="594"/>
+        </scene>
+        <!--MainViewController-->
+        <scene sceneID="oNR-RV-ShW">
+            <objects>
+                <viewController title="MainViewController" id="Q8C-Xr-ymf" customClass="MainViewController" customModule="CustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s9N-aN-Jgn"/>
+                        <viewControllerLayoutGuide type="bottom" id="BNO-Od-MCu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxZ-ss-OhH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gog-ir-cyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="-98"/>
         </scene>
     </scenes>
 </document>
