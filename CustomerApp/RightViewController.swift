@@ -10,12 +10,10 @@ import UIKit
 
 @objc
 protocol RightViewControllerDelegate {
-    
     optional func toggleRightPanel()
-    
 }
 
-class RightViewController: UIViewController, CenterViewControllerDelegate {
+class RightViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
     

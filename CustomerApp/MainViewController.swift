@@ -30,7 +30,6 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
 
     let centerPanelExpandedOffsetLeft: CGFloat = 100
     let centerPanelExpandedOffsetRight: CGFloat = 0
-
     
     // Generated methods
     
@@ -53,7 +52,6 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     // MARK: CenterViewController delegate methods
     
@@ -80,6 +78,7 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
     func addLeftPanelViewController() {
         if (leftViewController == nil) {
             leftViewController = UIStoryboard.leftViewController()
+            leftViewController?.delegate = centerViewController
             addLeftChildSidePanelController(leftViewController!)
         }
     }
@@ -173,9 +172,15 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
                 }
             }
         case .Changed:
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            if (rightViewController != nil) {
+            // Stop center view going off left side of screen if left view isn't there
+            if (rightViewController != nil && recognizer.view!.center.x + recognizer.translationInView(view).x <= view.bounds.size.width / 2) {
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                // Animate right view next to center view
                 rightViewController!.view.center.x = rightViewController!.view.center.x + recognizer.translationInView(view).x
+            }
+            // Stop center view going off left side of screen if right view isn't there
+            else if (rightViewController == nil && recognizer.view!.center.x + recognizer.translationInView(view).x >= view.bounds.size.width / 2) {
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
             }
             recognizer.setTranslation(CGPointZero, inView: view)
         case .Ended:
@@ -204,21 +209,22 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
         
         switch(recognizer.state) {
         case .Changed:
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            centerNavigationController.view.center.x = centerNavigationController.view.center.x + recognizer.translationInView(view).x
-            recognizer.setTranslation(CGPointZero, inView: view)
+            // Disallow scroll past end of right screen
+            if (recognizer.view!.center.x + recognizer.translationInView(view).x >= view.bounds.size.width / 2) {
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                centerNavigationController.view.center.x = centerNavigationController.view.center.x + recognizer.translationInView(view).x
+                recognizer.setTranslation(CGPointZero, inView: view)
+           }
         case .Ended:
             if (rightViewController != nil) {
-                let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
+                let hasMovedGreaterThanHalfway = recognizer.view!.center.x < view.bounds.size.width
                 animateRightPanel(shouldExpand: hasMovedGreaterThanHalfway)
             }
         default:
             break
         }
     }
-
 }
-
 
 private extension UIStoryboard {
     class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }

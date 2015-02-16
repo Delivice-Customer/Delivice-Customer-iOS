@@ -10,16 +10,15 @@ import UIKit
 
 @objc
 protocol CenterViewControllerDelegate {
-   
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
-    
 }
 
-class CenterViewController: UIViewController {
+class CenterViewController: UIViewController, LeftViewControllerDelegate {
 
-    @IBOutlet weak var LeftButton: UIButton!
-    @IBOutlet weak var RightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var textLabel: UILabel!
     
     var delegate: CenterViewControllerDelegate?
 
@@ -40,6 +39,13 @@ class CenterViewController: UIViewController {
     
     @IBAction func showRight(sender: AnyObject) {
         delegate?.toggleRightPanel?()
+    }
+    
+    // LeftViewControllerDelegate method
+    func categorySelected(category: String) {
+        println("captured")
+        self.textLabel.text = category
+        delegate?.toggleLeftPanel?()
     }
     
 }
