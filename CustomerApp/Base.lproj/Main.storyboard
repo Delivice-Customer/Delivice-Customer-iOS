@@ -110,13 +110,23 @@
                                     <action selector="showRight:" destination="D1p-rF-B3K" eventType="touchUpInside" id="8hs-zK-UGU"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTp-RY-JGy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="96T-fc-VaL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="WTp-RY-JGy" secondAttribute="trailing" constant="-16" id="0br-qR-Cdc"/>
                             <constraint firstAttribute="centerX" secondItem="U63-CI-fUo" secondAttribute="centerX" constant="-0.5" id="Ayq-6K-1Tm"/>
                             <constraint firstItem="JhO-bm-99U" firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="0.75" id="OeS-xa-8kr"/>
                             <constraint firstItem="JhO-bm-99U" firstAttribute="trailing" secondItem="lfl-uj-rvX" secondAttribute="trailingMargin" id="Qym-3t-NtO"/>
                             <constraint firstItem="s2d-RO-bvX" firstAttribute="leading" secondItem="lfl-uj-rvX" secondAttribute="leadingMargin" id="S14-Hb-rBv"/>
+                            <constraint firstItem="WTp-RY-JGy" firstAttribute="top" secondItem="Pwd-zf-Wvv" secondAttribute="bottom" constant="-20" id="WER-Dl-6ss"/>
+                            <constraint firstItem="WTp-RY-JGy" firstAttribute="leading" secondItem="lfl-uj-rvX" secondAttribute="leadingMargin" constant="-16" id="fFf-ww-XQ2"/>
                             <constraint firstItem="s2d-RO-bvX" firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="0.75" id="l7s-in-Csv"/>
                             <constraint firstAttribute="centerY" secondItem="U63-CI-fUo" secondAttribute="centerY" constant="64.5" id="oyT-LP-Bfh"/>
                         </constraints>
@@ -154,7 +164,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.47000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="evX-bp-SX5" secondAttribute="centerY" constant="63" id="LbL-mY-1Qw"/>
                             <constraint firstItem="evX-bp-SX5" firstAttribute="leading" secondItem="Xta-6Z-tY9" secondAttribute="leadingMargin" id="Qlu-jp-HX1"/>
