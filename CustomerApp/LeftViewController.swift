@@ -69,8 +69,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row > 0) {
-            
-            //delegate?.categorySelected(categories[indexPath.row - 1])
+            delegate?.categorySelected(categories[indexPath.row - 1])
         }
     }
     

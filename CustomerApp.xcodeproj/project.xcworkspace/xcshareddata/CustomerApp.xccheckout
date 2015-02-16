@@ -10,14 +10,14 @@
 	<string>CustomerApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3C9C7946B4646E153E4183385C134E309484B15D</key>
+		<key>ED0B00BD48E00D009EAD23581D3033640337240B</key>
 		<string>https://github.com/Delivice-Customer/Delivice-Customer-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CustomerApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3C9C7946B4646E153E4183385C134E309484B15D</key>
+		<key>ED0B00BD48E00D009EAD23581D3033640337240B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3C9C7946B4646E153E4183385C134E309484B15D</string>
+	<string>ED0B00BD48E00D009EAD23581D3033640337240B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3C9C7946B4646E153E4183385C134E309484B15D</string>
+			<string>ED0B00BD48E00D009EAD23581D3033640337240B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CustomerApp</string>
 		</dict>

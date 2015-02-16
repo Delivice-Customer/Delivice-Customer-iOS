@@ -40,6 +40,7 @@ class MainViewController: UIViewController, CenterViewControllerDelegate, RightV
         centerViewController.delegate = self
 
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
+        centerNavigationController.setNavigationBarHidden(true, animated: false)
         view.addSubview(centerNavigationController.view)
         addChildViewController(centerNavigationController)
         
