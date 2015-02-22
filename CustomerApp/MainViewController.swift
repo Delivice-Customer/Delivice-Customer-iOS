@@ -5,7 +5,7 @@
 //  Created by Tong on 2/9/15.
 //  Copyright (c) 2015 Delivice. All rights reserved.
 //
-//  Sliding panel code from:
+//  Sliding panel code based on:
 //  http://www.raywenderlich.com/78568/create-slide-out-navigation-panel-swift
 //
 

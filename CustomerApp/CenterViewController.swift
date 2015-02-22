@@ -55,6 +55,7 @@ class CenterViewController: UIViewController, LeftViewControllerDelegate {
         delegate?.toggleRightPanel?()
     }
     
+    // Method to add 1 to item count on tap
     var count = 0;
     @IBAction func buttonPressed(sender: UIButton)
     {
@@ -67,8 +68,9 @@ class CenterViewController: UIViewController, LeftViewControllerDelegate {
     
     // LeftViewControllerDelegate method
     func categorySelected(category: String) {
-        println("captured")
+        // Add any code needed to get category items from the database here
         self.textLabel.text = category
+        // Collapse back to main panel
         delegate?.toggleLeftPanel?()
     }
     

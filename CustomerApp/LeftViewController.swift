@@ -22,14 +22,18 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
     
     var delegate: LeftViewControllerDelegate?
     
-    // Initialize category & subcategory data
+    // Category & subcategory data goes here
     var categories: [String] = []
     var subCategories =  [String: [String]]()
     
     // Data for table view data source
-    var expandedIndex =  [Int: Int]()
     var tableData: [String] = []
     
+    // Keys are indexes of all the main categories
+    // Values are the number of subcells that are currently being displayed for that category
+    var expandedIndex =  [Int: Int]()
+
+    // Load data -- this code can be changed to pull from the database in the future
     func initCategoryData() {
         // Load main categories
         categories = ["Produce", "Meats & Seafood", "Dairy & Eggs"]
@@ -37,6 +41,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
         subCategories["Produce"] = ["Fruits", "Vegetables"]
         subCategories["Meats & Seafood"] = ["Red Meat", "White Meat"]
         subCategories["Dairy & Eggs"] = ["Milk", "Cheese", "Eggs"]
+        
         // Put initial items into tableData
         tableData = categories
         // Put indexes of expanded categories into expandedIndex
@@ -51,8 +56,6 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         initCategoryData()
         tableView.reloadData()
-        println("ExpandedIndex: \(expandedIndex)")
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +74,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell : UITableViewCell
+        // Placeholder cell
         if (indexPath.row == 0 && indexPath.section == 0) {
             cell = tableView.dequeueReusableCellWithIdentifier(self.placeholderIdentifier) as UITableViewCell
         }
@@ -93,7 +97,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
         if (cell.reuseIdentifier == placeholderIdentifier) {
             return
         }
-        // Expand cells if is a main category
+        // Expand/collapse cells if is a main category
         else if (cell.reuseIdentifier == cellIdentifier) {
             let indexPathsToChange = makePathsArr(indexPath, category: cell.textLabel!.text!)
             if (expandCategoryIntoTableData(cell.textLabel!.text!, index: indexPath.row)){
@@ -111,6 +115,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // Returns true if items were added to tabledata, false if items were removed
     func expandCategoryIntoTableData(category: String, index: Int) -> Bool {
         // Check if category is already expanded
         if (expandedIndex[index - 1] == 0) {
