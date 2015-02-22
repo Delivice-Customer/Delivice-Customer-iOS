@@ -74,6 +74,7 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
         if (indexPath.row == 0 && indexPath.section == 0) {
             cell = tableView.dequeueReusableCellWithIdentifier(self.placeholderIdentifier) as UITableViewCell
         }
+        // If the index of the cell (minus one due to placeholder) is in the hash of main indicies
         else if (contains(expandedIndex.keys.array, indexPath.row - 1)) {
             cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
             cell.textLabel?.text = tableData[indexPath.row - 1]
@@ -122,15 +123,13 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
             expandedIndex[index - 1] = itemsToAdd.count
             let originalKeys = expandedIndex.keys
             for categoryIndex in originalKeys {
+                // Update values for main cells that come after the changed cell
                 if (categoryIndex > index - 1) {
-                    println("categoryIndex: \(categoryIndex)")
                     let oldVal = expandedIndex[categoryIndex]
                     expandedIndex[categoryIndex] = nil
                     expandedIndex[categoryIndex + itemsToAdd.count] = oldVal;
-                    println("Set expandedIndex[\(categoryIndex + itemsToAdd.count)] to \(oldVal)")
                 }
             }
-            println("ExpandedIndex: \(expandedIndex)")
             return true
         }
         else {
@@ -142,15 +141,13 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
             expandedIndex[index - 1] = 0
             let originalKeys = expandedIndex.keys
             for categoryIndex in originalKeys {
+                // Update values for main cells that come after the changed cell
                 if (categoryIndex > index - 1) {
-                    println("categoryIndex: \(categoryIndex)")
                     let oldVal = expandedIndex[categoryIndex]
                     expandedIndex[categoryIndex] = nil
                     expandedIndex[categoryIndex - itemsToRemove.count] = oldVal;
-                    println("Set expandedIndex[\(categoryIndex - itemsToRemove.count)] to \(oldVal)")
                 }
             }
-            println("ExpandedIndex: \(expandedIndex)")
             return false
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E515FF081A9196D9002084DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515FF071A9196D9002084DA /* SettingsViewController.swift */; };
 		E55E01D91A8D58D10043A469 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55E01D81A8D58D10043A469 /* LeftViewController.swift */; };
 		E5850A631A897BC000E4364C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5850A621A897BC000E4364C /* AppDelegate.swift */; };
 		E5850A651A897BC000E4364C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5850A641A897BC000E4364C /* MainViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E515FF071A9196D9002084DA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E55E01D81A8D58D10043A469 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		E5850A5D1A897BC000E4364C /* CustomerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5850A611A897BC000E4364C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		E5850A5F1A897BC000E4364C /* CustomerApp */ = {
 			isa = PBXGroup;
 			children = (
+				E515FF071A9196D9002084DA /* SettingsViewController.swift */,
 				E5850A621A897BC000E4364C /* AppDelegate.swift */,
 				E5850A641A897BC000E4364C /* MainViewController.swift */,
 				E5B3C9501A8F25E100893686 /* CenterViewController.swift */,
@@ -226,6 +229,7 @@
 				E5B3C9511A8F25E100893686 /* CenterViewController.swift in Sources */,
 				E5850A651A897BC000E4364C /* MainViewController.swift in Sources */,
 				E5850A631A897BC000E4364C /* AppDelegate.swift in Sources */,
+				E515FF081A9196D9002084DA /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
