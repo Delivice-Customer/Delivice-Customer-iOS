@@ -12,9 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var client: MSClient?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // Hookup Azure
+        self.client = MSClient(applicationURLString: "https://deliviceapp.azure-mobile.net/", applicationKey: "argsTDcbMiPWjnSQOVpEGxZnLpKGyN34")
+
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let mainViewController = MainViewController()

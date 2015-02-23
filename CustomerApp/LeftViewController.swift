@@ -34,9 +34,10 @@ class LeftViewController: UITableViewController, UITableViewDelegate, UITableVie
     var expandedIndex =  [Int: Int]()
 
     // Load data -- this code can be changed to pull from the database in the future
-    func initCategoryData() {
+    func initCategoryData() {        
         // Load main categories
         categories = ["Produce", "Meats & Seafood", "Dairy & Eggs"]
+        
         // Load subcategories
         subCategories["Produce"] = ["Fruits", "Vegetables"]
         subCategories["Meats & Seafood"] = ["Red Meat", "White Meat"]

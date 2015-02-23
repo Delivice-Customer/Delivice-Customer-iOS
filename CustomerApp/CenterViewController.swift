@@ -35,9 +35,27 @@ class CenterViewController: UIViewController, LeftViewControllerDelegate {
     @IBOutlet weak var addOne: UITextField!
     
     var delegate: CenterViewControllerDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        /* Code to add items to product table
+        let azureDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let client = azureDelegate.client!
+        let productsTable = client.tableWithName("products")
+
+        let item = ["name": "Oranges", "category": "Fruits", "price": 1.99, "store": "Kroger"]
+        
+        productsTable.insert(item, completion: {(insertedItem, error) in
+                if (error != nil){
+                    println("error: \(error)")
+                }
+                else{
+                    println("Success!")
+                }
+            }
+        )
+        */
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,8 +86,24 @@ class CenterViewController: UIViewController, LeftViewControllerDelegate {
     
     // LeftViewControllerDelegate method
     func categorySelected(category: String) {
-        // Add any code needed to get category items from the database here
-        self.textLabel.text = category
+        // Get category items from the database here
+        let azureDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let client = azureDelegate.client!
+        let productsTable = client.tableWithName("products")
+        
+        productsTable.readWithPredicate(NSPredicate(format: "category == %@", category),
+            completion: {(items, totalCount, error) in
+                var dataString = ""
+                for item in items {
+                    let name = item["name"] as String
+                    let price = item["price"] as Float
+                    let store = item["store"] as String
+                    dataString += "[\(name): $\(price) at \(store)] \n"
+                }
+                self.textLabel.text = dataString
+            }
+        )
+        
         // Collapse back to main panel
         delegate?.toggleLeftPanel?()
     }
